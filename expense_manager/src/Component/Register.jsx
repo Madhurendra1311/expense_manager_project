@@ -2,6 +2,74 @@ import React from "react";
 import { connect } from "react-redux";
 import axios from 'axios'
 import { userRegister } from "../Redux/actions/registerAction";
+import Styled from 'styled-components'
+
+const RegisterWrapper = Styled.div`
+
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+        content: "";
+        opacity: 1;
+        background: linear-gradient(
+                        rgba(20,20,20, .5), 
+                        rgba(20,20,20, .5)),
+                        url( https://c8.alamy.com/comp/2BEJC53/computer-at-productive-home-workplace-using-computers-and-gadgets-to-work-or-study-from-home-online-education-and-distance-learning-homeschooling-2BEJC53.jpg);
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+
+    .register{
+        display:flex;
+        flex-direction:column;     
+        margin:auto;
+        border:1px solid grey;
+        background:white;
+        width:300px;
+        height:300px; q        
+        margin-top:100px;
+        padding:10px;
+        padding-right : 40px;
+        div,h4{
+            text-align:center;
+        }
+       
+    }
+
+    .img{
+        display:flex;
+        justify-content:center;
+        height:130px;
+        background:white;
+        opacity:0.8;
+
+}
+   
+    h1{
+        color:white;
+        text-align:center;
+    }
+    input{
+        padding:10px;
+        margin:10px;
+        margin-left:40px;
+        border-radius:5px;
+        border:1px solid grey;
+    }
+    .button{
+        background : #3949AB;
+        color:white;
+    }
+    .button:hover {
+        background : #7CB342;
+    }
+`
+const BackgroundImageWrapper = Styled.div` 
+       
+`
 
 class Register extends React.Component{
     constructor(props){
@@ -49,26 +117,40 @@ class Register extends React.Component{
             alert("Fill all Details")
         }
     }
+   
 
     render(){
         const { name, email, password } = this.state;
         return(
-            <>
-                <form onSubmit={this.onSubmit}>
-                    <div>
-                        Name:<br/><input onChange={this.handleChange} name="name" placeholder="name" type="text" value={name} /><br/>
-                    </div>
-                    <div>
-                        Email:<br/><input onChange={this.handleChange} name="email" placeholder="email" type="text" value={email} /><br/>
-                    </div>
-                    <div>
-                        Password:<br/><input onChange={this.handleChange} name="password" placeholder="password" type="password" value={password} /><br/>
-                    </div>
-                    <div>
-                        <input value="submit" type="submit" />
-                    </div>
+            
+            
+            <RegisterWrapper>
+                <div class="img">
+                    <img src = "http://www.expense-manager.in/assets/img/Expmng-Logo.png" height="80px" width="200px" alt="logo"/>
+                </div>                
+                <div>
+                    <h1>REGISTER AN ACCOUNT</h1>
+                    <hr width="50px"/>
+                </div>
+                <div className="register">
+                    <h4>Sign Up</h4>
+                    <form onSubmit={this.onSubmit}>
+                        <div>
+                            <input type="text" name="name" value={name} placeholder="name" onChange={this.handleChange}   />
+                        </div>
+                        <div>
+                            <input onChange={this.handleChange} name="email" placeholder="email" type="text" value={email} />
+                        </div>
+                        <div>
+                            <input onChange={this.handleChange} name="password" placeholder="password" type="password" value={password} />
+                        </div>
+                        <div>
+                            <input  className="button" value="submit" type="submit" />
+                        </div>
                 </form>
-            </>
+                </div>
+            </RegisterWrapper>
+      
         )
     }
 }
