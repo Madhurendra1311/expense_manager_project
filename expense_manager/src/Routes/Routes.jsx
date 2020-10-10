@@ -5,6 +5,7 @@ import Register from "../Component/Register"
 import Login from "../Component/Login";
 import Home from "../Component/Home"
 
+
 function Routes() {
     return (
       <>

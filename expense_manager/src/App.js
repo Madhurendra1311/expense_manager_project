@@ -4,13 +4,13 @@ import { Routes } from "./Routes/Routes";
 // import Footer from "./Component/Footer"
 
 
+
+
 function App() {
   return (
-    <div className="App" style={{height:"1000px"}}>
-    
+    <div className="App" style={{height:"1000px"}}>    
       {/* <Navbar /> */}
       <Routes />
-    
     </div>
   );
 }
