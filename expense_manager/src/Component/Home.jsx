@@ -1,6 +1,7 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
 import Styled from 'styled-components'
+import Footer from './Footer'
 
 const HomeWrapper=Styled.div`
     justify-content:space-around;
@@ -120,6 +121,7 @@ function Home(){
                 Just add new transactions when you are buying a coffee or taking a taxi or whenever do a transactions. It’s done in one click, because you just need to fill few field with expense/income amount. It is so quick and enjoyable!
                 </div>
             </AboutWebsiteContentWrapper>
+            <Footer/>
         </div>
     )
 }

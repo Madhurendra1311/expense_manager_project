@@ -2,6 +2,9 @@ import React from 'react'
 import Styled from 'styled-components'
 
 const FooterWrapper = Styled.footer`
+    position:static;
+    bottom:-10px;
+    padding:20px;
     text-align : center;
 `
 
