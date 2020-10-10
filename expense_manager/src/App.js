@@ -1,7 +1,10 @@
 import React from 'react';
+
 // import Navbar from "./Component/Navbar"
 import { Routes } from "./Routes/Routes";
 import Footer from "./Component/Footer"
+
+
 
 
 function App() {
@@ -11,6 +14,7 @@ function App() {
       {/* <Navbar /> */}
       <Routes />
       <Footer/>
+
     </div>
   );
 }
