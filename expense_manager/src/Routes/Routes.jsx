@@ -4,15 +4,25 @@ import Dashboard from "../Component/Dashboard";
 import Register from "../Component/Register"
 import Login from "../Component/Login";
 import Ledger from "../Component/Ledger"
+import Home from "../Component/Home"
+
+
 
 function Routes() {
     return (
       <>
         <Switch>
+
           <Route path="/login" render={(props) => <Login {...props} />} />
           <Route path="/Dashboard" exact render={() => <Dashboard />} />
           <Route path="/register" render={() => <Register />} />
           <Route path="/ledger" render={() => <Ledger />} />
+
+          <Route path="/" exact component={Home} />
+          {/* <Route path="/login" render={(props) => <Login {...props} />} /> */}
+          <Route path="/dashboard" render={() => <Dashboard />} />
+          <Route path="/register" render={() => <Register />} />
+          <Route path="/login" render={()=><Login />} />
           <Route>
             <div>Error 404 </div>
             <Link to="/">GO BACK HOME</Link>
