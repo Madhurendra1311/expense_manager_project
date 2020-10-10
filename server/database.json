@@ -29,6 +29,36 @@
       "email": "kkkunal66@gmail.com",
       "password": "12345",
       "id": 5
+    },
+    {
+      "name": "rahul",
+      "email": "r@gmail.com",
+      "password": "222222",
+      "id": 6
+    },
+    {
+      "name": "ram",
+      "email": "ram@gmail.com",
+      "password": "ram",
+      "id": 7
+    },
+    {
+      "name": "ramu",
+      "email": "ramu@gmail.com",
+      "password": "12345",
+      "id": 8
+    },
+    {
+      "name": "MASAI School",
+      "email": "hello@masai.com",
+      "password": "1234",
+      "id": 9
+    },
+    {
+      "name": "Ram",
+      "email": "rama@gmail.com",
+      "password": "123456",
+      "id": 10
     }
   ],
   "transactions": [

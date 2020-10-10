@@ -9,11 +9,15 @@ let links = [
   {
     to: "/register",
     title: "Register"
+  },
+  {
+    to: "/login",
+    title: "Login"
+  },
+  {
+    to: "/ledger",
+    title: "Ledger"
   }
-//   {
-//     to: "/login",
-//     title: "Login"
-//   }
 ];
 
 function Navbar() {

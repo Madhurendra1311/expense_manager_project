@@ -2,6 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import axios from 'axios'
 import { userRegister } from "../Redux/actions/registerAction";
+import { validEmail } from './emailValidation'
 
 class Register extends React.Component{
     constructor(props){
@@ -23,7 +24,8 @@ class Register extends React.Component{
     onSubmit = (e) => {
         e.preventDefault();
         const { name, email, password } = this.state;
-        if(name.length > 0 && email.length > 0 && password.length > 0 ) {
+
+        if(name.length > 0 && validEmail(email) && password.length > 5 ) {
             axios
             .get('http://localhost:3000/usersData')
             .then(res=>{

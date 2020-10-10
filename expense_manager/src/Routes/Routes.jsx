@@ -3,14 +3,16 @@ import { Route, Switch, Link } from "react-router-dom";
 import Dashboard from "../Component/Dashboard";
 import Register from "../Component/Register"
 import Login from "../Component/Login";
+import Ledger from "../Component/Ledger"
 
 function Routes() {
     return (
       <>
         <Switch>
-          {/* <Route path="/login" render={(props) => <Login {...props} />} /> */}
+          <Route path="/login" render={(props) => <Login {...props} />} />
           <Route path="/Dashboard" exact render={() => <Dashboard />} />
           <Route path="/register" render={() => <Register />} />
+          <Route path="/ledger" render={() => <Ledger />} />
           <Route>
             <div>Error 404 </div>
             <Link to="/">GO BACK HOME</Link>
