@@ -33,6 +33,7 @@ class Login extends React.Component {
     const { email, password } = this.state;
     const { isAuth, isLoading, error, userData} = this.props;
     console.log(isAuth, isLoading,error, userData);
+
     if (!isAuth)
       return (
         <>
@@ -67,7 +68,7 @@ class Login extends React.Component {
       );
     else {
       return ( 
-       <Redirect to="/dashboard"/>        
+          <Redirect to="/dashboard"/>     
       )
 
     }

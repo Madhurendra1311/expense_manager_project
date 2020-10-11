@@ -7,6 +7,7 @@ import { USER_LOGIN_REQUEST, USER_LOGIN_SUCCESS, USER_LOGIN_FAILURE } from "../a
     message: '',
     userData : [],
     user_id : 0
+
   };
   
   export default (state = initState, { type, payload }) => {
@@ -27,6 +28,17 @@ import { USER_LOGIN_REQUEST, USER_LOGIN_SUCCESS, USER_LOGIN_FAILURE } from "../a
           isAuth: payload.length ? true :false,         
           userData:payload,
           user_id:payload[0].id
+// =======
+//           error: "",
+//           isLoading: true
+//         };
+//       case USER_LOGIN_SUCCESS:
+//         return {
+//           ...state,
+//           isLoading: false,
+//           isAuth: payload.isAuth,
+//           message: payload.message
+
         };
       case USER_LOGIN_FAILURE:
         return {
@@ -34,6 +46,8 @@ import { USER_LOGIN_REQUEST, USER_LOGIN_SUCCESS, USER_LOGIN_FAILURE } from "../a
           isLoading: false,
           isAuth: false,
           error: true
+//           error: "something went wrong"
+
         };
       default:
         return state;
