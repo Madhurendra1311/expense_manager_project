@@ -4,7 +4,10 @@ import { USER_LOGIN_REQUEST, USER_LOGIN_SUCCESS, USER_LOGIN_FAILURE } from "../a
     isLoading: false,
     error: false,
     isAuth: false,
-    message: ''
+    message: '',
+    userData : [],
+    user_id : 0
+
   };
   
   export default (state = initState, { type, payload }) => {
@@ -13,21 +16,38 @@ import { USER_LOGIN_REQUEST, USER_LOGIN_SUCCESS, USER_LOGIN_FAILURE } from "../a
       case USER_LOGIN_REQUEST:
         return {
           ...state,
-          error: "",
+          error: false,
           isLoading: true
         };
       case USER_LOGIN_SUCCESS:
+        console.log(payload[0].id)
         return {
           ...state,
           isLoading: false,
-          isAuth: payload.isAuth,
-          message: payload.message
+          error : payload.length ? false :true,
+          isAuth: payload.length ? true :false,         
+          userData:payload,
+          user_id:payload[0].id
+// =======
+//           error: "",
+//           isLoading: true
+//         };
+//       case USER_LOGIN_SUCCESS:
+//         return {
+//           ...state,
+//           isLoading: false,
+//           isAuth: payload.isAuth,
+//           message: payload.message
+
         };
       case USER_LOGIN_FAILURE:
         return {
           ...state,
           isLoading: false,
-          error: "something went wrong"
+          isAuth: false,
+          error: true
+//           error: "something went wrong"
+
         };
       default:
         return state;
