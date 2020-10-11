@@ -1,78 +1,50 @@
 {
-  "usersData": [
-    {
-      "id": 1,
-      "name": "kunal",
-      "email": "kunal66@gmail.com",
-      "password": 123456
-    },
-    {
-      "id": 2,
-      "name": "vivek",
-      "email": "vivek55@gmail.com",
-      "password": 123456
-    },
-    {
-      "name": "soundarya",
-      "email": "soundaryamecse@gmail.com",
-      "password": "sakthiprabhu",
-      "id": 3
-    },
-    {
-      "id": 4
-    },
-    {
-      "id": 5
-    }
-  ],
-  "transactions": [
-    {
-      "id": 1,
-      "user_id": 1,
-      "title": "salary",
-      "type": "credit",
-      "amount": 10000,
-      "timestamp": "2020-10-01 09:00"
-    },
-    {
-      "id": 1,
-      "user_id": 3,
-      "title": "salary",
-      "type": "credit",
-      "amount": 10000,
-      "timestamp": "2020-10-01 09:00"
-    },
-    {
-      "id": 1,
-      "user_id": 3,
-      "title": "salary",
-      "type": "debit",
-      "amount": 18000,
-      "timestamp": "2020-10-01 09:00"
-    },
-    {
-      "id": 2,
-      "user_id": 1,
-      "title": "rent",
-      "type": "debit",
-      "amount": 5000,
-      "timestamp": "2020-10-02 09:00"
-    },
-    {
-      "id": 3,
-      "user_id": 2,
-      "title": "salary",
-      "type": "credit",
-      "amount": 20000,
-      "timestamp": "2020-10-01 09:00"
-    },
-    {
-      "id": 4,
-      "user_id": 2,
-      "title": "rent",
-      "type": "debit",
-      "amount": 7500,
-      "timestamp": "2020-10-02 09:00"
-    }
-  ]
-}
+    "usersData": [
+        {
+          "id": 1,
+          "name": "kunal",
+          "email": "kunal66@gmail.com",
+          "password":123456
+        },
+        {
+          "id": 2,
+          "name": "vivek",
+          "email": "vivek55@gmail.com",
+          "password":123456
+        }
+    ],
+    "transactions": [
+        {
+            "id": 1,
+            "user_id": 1,
+            "title": "salary",
+            "type": "credit",
+            "amount":10000,
+            "timestamp": "2020-10-01 09:00"
+        },
+        {
+            "id": 2,
+            "user_id": 1,
+            "title": "rent",
+            "type": "debit",
+            "amount":5000,
+            "timestamp": "2020-10-02 09:00"
+        },
+        {
+            "id": 3,
+            "user_id": 2,
+            "title": "salary",
+            "type": "credit",
+            "amount":20000,
+            "timestamp": "2020-10-01 09:00"
+        },
+        {
+            "id": 4,
+            "user_id": 2,
+            "title": "rent",
+            "type": "debit",
+            "amount":7500,
+            "timestamp": "2020-10-02 09:00"
+        }
+    ]
+  }
