@@ -1,4 +1,4 @@
-import { USER_LOGIN_REQUEST, USER_LOGIN_SUCCESS, USER_LOGIN_FAILURE } from "../actionTypes";
+import { USER_LOGIN_REQUEST, USER_LOGIN_SUCCESS, USER_LOGIN_FAILURE , LOGOUT} from "../actionTypes";
   
   export const initState = {
     isLoading: false,
@@ -28,7 +28,7 @@ import { USER_LOGIN_REQUEST, USER_LOGIN_SUCCESS, USER_LOGIN_FAILURE } from "../a
           isAuth: payload.length ? true :false,         
           userData:payload,
           user_id:payload[0].id
-// =======
+
 //           error: "",
 //           isLoading: true
 //         };
@@ -47,8 +47,13 @@ import { USER_LOGIN_REQUEST, USER_LOGIN_SUCCESS, USER_LOGIN_FAILURE } from "../a
           isAuth: false,
           error: true
 //           error: "something went wrong"
-
         };
+
+      case LOGOUT :
+        return {
+          ...state,
+          isAuth : false
+        }
       default:
         return state;
     }

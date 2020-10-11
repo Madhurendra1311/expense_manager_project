@@ -1,5 +1,5 @@
 import axios from "axios";
-import { USER_LOGIN_REQUEST, USER_LOGIN_SUCCESS, USER_LOGIN_FAILURE } from "../actionTypes";
+import { USER_LOGIN_REQUEST, USER_LOGIN_SUCCESS, USER_LOGIN_FAILURE,LOGOUT } from "../actionTypes";
 
 export const userLoginRequest = () => ({
     type: USER_LOGIN_REQUEST
@@ -13,7 +13,11 @@ export const userLoginRequest = () => ({
   export const userLoginFailure = (payload) => ({
     type: USER_LOGIN_FAILURE,
     payload
-  });  
+  }); 
+  
+  export const logout = () => ({
+      type: LOGOUT
+  })
 
   export const userLogin = (payload) => (dispatch) => {   
     dispatch(userLoginRequest())
