@@ -68,13 +68,9 @@ const RegisterWrapper = Styled.div`
         background : #7CB342;
     }
 `
-
 // const BackgroundImageWrapper = Styled.div` 
        
 // `
-
-
-
 
 class Register extends React.Component{
     constructor(props){

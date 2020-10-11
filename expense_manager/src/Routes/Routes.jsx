@@ -7,10 +7,11 @@ import Home from "../Component/Home"
 import Ledger from "../Component/Ledger"
 
 
+
 function Routes(props) {
     return (
       <>
-        <Switch>     
+        <Switch>    
           <Route path="/" exact component={Home} />
           <Route path="/register" render={() => <Register />} />
           <Route path="/login" render={()=><Login {...props}/>} />

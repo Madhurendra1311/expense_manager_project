@@ -1,4 +1,6 @@
+
 import { USER_LOGIN_REQUEST, USER_LOGIN_SUCCESS, USER_LOGIN_FAILURE , LOGOUT} from "../actionTypes";
+
   
   export const initState = {
     isLoading: false,
@@ -7,7 +9,6 @@ import { USER_LOGIN_REQUEST, USER_LOGIN_SUCCESS, USER_LOGIN_FAILURE , LOGOUT} fr
     message: '',
     userData : JSON.parse(window.localStorage.getItem('userData')) || [],
     user_id :  window.localStorage.getItem('userId') || 0
-
   };
   
   export default (state = initState, { type, payload }) => {
@@ -43,9 +44,8 @@ import { USER_LOGIN_REQUEST, USER_LOGIN_SUCCESS, USER_LOGIN_FAILURE , LOGOUT} fr
 //           ...state,
 //           isLoading: false,
 //           isAuth: payload.isAuth,
-//           message: payload.message
-
-        };
+//          message: payload.message
+ };
       case USER_LOGIN_FAILURE:
         return {
           ...state,
@@ -61,6 +61,7 @@ import { USER_LOGIN_REQUEST, USER_LOGIN_SUCCESS, USER_LOGIN_FAILURE , LOGOUT} fr
           ...state,
           isAuth : false,
         }
+
       default:
         return state;
     }
