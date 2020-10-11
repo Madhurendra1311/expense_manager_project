@@ -70,7 +70,6 @@ class Login extends React.Component {
       return ( 
           <Redirect to="/dashboard"/>     
       )
-
     }
   }
 }

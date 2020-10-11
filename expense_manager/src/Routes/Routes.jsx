@@ -3,15 +3,16 @@ import { Route, Switch, Link } from "react-router-dom";
 import Dashboard from "../Component/Dashboard";
 import Register from "../Component/Register"
 import Login from "../Component/Login";
-import Home from "../Component/Home"
-import DashboardItems from "../Component/DashboardItems"
 import Ledger from "../Component/Ledger"
+import Home from "../Component/Home"
+
 
 
 function Routes(props) {
     return (
       <>
-        <Switch>     
+        <Switch>    
+
           <Route path="/" exact component={Home} />
           <Route path="/register" render={() => <Register />} />
           <Route path="/login" render={()=><Login {...props}/>} />

@@ -11,6 +11,7 @@ function App() {
     <div className="App" style={{height:"1000px"}}>    
       {/* <Navbar /> */}
        <Routes />
+
     </div>
   );
 }
