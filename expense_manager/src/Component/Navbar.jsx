@@ -3,6 +3,10 @@ import { Link } from "react-router-dom";
 
 let links = [
   {
+    to: "/",
+    title: "Home"
+  },
+  {
     to: "/dashboard",
     title: "Dashboard"
   },

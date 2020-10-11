@@ -68,9 +68,9 @@ const RegisterWrapper = Styled.div`
         background : #7CB342;
     }
 `
-const BackgroundImageWrapper = Styled.div` 
+// const BackgroundImageWrapper = Styled.div` 
        
-`
+// `
 
 class Register extends React.Component{
     constructor(props){
@@ -93,7 +93,7 @@ class Register extends React.Component{
         e.preventDefault();
         const { name, email, password } = this.state;
 
-        if(name.length > 0 && validEmail(email) && password.length > 5 ) {
+        if(name.length > 3 && validEmail(email) && password.length > 5 ) {
             axios
             .get('http://localhost:3000/usersData')
             .then(res=>{
