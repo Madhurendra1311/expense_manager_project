@@ -20,7 +20,7 @@ export const userRegisterFailure = (payload) => ({
 export const userRegister = (payload) => (dispatch) => {
     dispatch(userRegisterRequest());
     axios
-      .post("http://localhost:3000/usersData", payload)
+      .post("http://localhost:3004/usersData", payload)
       .then((res) => {
           if(res.status === 200){
             const { error, message } = res.data
