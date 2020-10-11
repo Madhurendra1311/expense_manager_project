@@ -30,7 +30,7 @@ const RegisterWrapper = Styled.div`
         border:1px solid grey;
         background:white;
         width:300px;
-        height:300px; q        
+        height:400px; 
         margin-top:100px;
         padding:10px;
         padding-right : 40px;
@@ -68,9 +68,13 @@ const RegisterWrapper = Styled.div`
         background : #7CB342;
     }
 `
+
 // const BackgroundImageWrapper = Styled.div` 
        
 // `
+
+
+
 
 class Register extends React.Component{
     constructor(props){

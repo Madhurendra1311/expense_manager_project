@@ -97,7 +97,7 @@ function Home(){
                 </div>
                 <Link to="/login"><button>LOGIN</button></Link>
                 <Link to="/register"><button>REGISTER</button></Link>
-                <Link to="/ledger"><button>LEDGER</button></Link>
+                {/* <Link to="/ledger"><button>LEDGER</button></Link> */}
               
             </HomeWrapper>
             <BackgroundWrapper>

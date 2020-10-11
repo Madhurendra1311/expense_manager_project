@@ -1,5 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
+import { Redirect } from "react-router-dom";
 import { userLogin } from "../Redux/actions/loginAction";
 class Login extends React.Component {
   constructor(props) {
@@ -20,8 +21,8 @@ class Login extends React.Component {
     const { email, password } = this.state;
     if(email.length > 0 && password.length > 0){
       let payload = {
-        email: email,
-        password: password
+        "email" : email,
+        "password" : password
     }
     this.props.loginRequest(payload);
     }else{
@@ -30,8 +31,9 @@ class Login extends React.Component {
   };
   render() {
     const { email, password } = this.state;
-    const { isAuth, isLoading, error, message } = this.props;
-    console.log(isAuth, isLoading,error, message);
+    const { isAuth, isLoading, error, userData} = this.props;
+    console.log(isAuth, isLoading,error, userData);
+
     if (!isAuth)
       return (
         <>
@@ -58,18 +60,15 @@ class Login extends React.Component {
               <input value="submit" type="submit" />
             </div>
           </form>
-          {isLoading && "...loading"}
-          {error && error}
+          {isLoading && "...loading"}          
           {
-              !isAuth && message && <div>{message}</div>
+              !isAuth && error  && <div>Invalid Credentials pls try Again !!!</div>
           }
         </>
       );
     else {
       return ( 
-        <div>
-          Logged IN
-          </div>
+          <Redirect to="/dashboard"/>     
       )
 
     }
@@ -81,7 +80,7 @@ const mapStateToProps = (state) => ({
   error: state.login.error,
   isLoading: state.login.isLoading,
   profile: state.login.profile,
-  message: state.login.message
+  userData : state.login.userData
 });
 
 const mapDispatchToProps = (dispatch) => ({
