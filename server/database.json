@@ -7,58 +7,16 @@
       "password": 123456
     },
     {
-      "id": 2,
-      "name": "vivek",
-      "email": "vivek55@gmail.com",
-      "password": 123456
-    },
-    {
-      "name": "MADHURENDRA KUMAR",
-      "email": "madhurendrakumar1311@gmail.com",
-      "password": "1234",
-      "id": 3
-    },
-    {
-      "name": "raunak",
-      "email": "rr@gmail.com",
-      "password": "1111",
-      "id": 4
-    },
-    {
-      "name": "MADHURENDRA KUMAR",
-      "email": "kkkunal66@gmail.com",
-      "password": "12345",
-      "id": 5
-    },
-    {
-      "name": "rahul",
-      "email": "r@gmail.com",
-      "password": "222222",
-      "id": 6
-    },
-    {
-      "name": "ram",
-      "email": "ram@gmail.com",
-      "password": "ram",
-      "id": 7
-    },
-    {
-      "name": "ramu",
-      "email": "ramu@gmail.com",
-      "password": "12345",
-      "id": 8
-    },
-    {
-      "name": "MASAI School",
-      "email": "hello@masai.com",
-      "password": "1234",
-      "id": 9
-    },
-    {
-      "name": "Ram",
-      "email": "rama@gmail.com",
+      "name": "shyam kumar",
+      "email": "s123@gmail.com",
       "password": "123456",
-      "id": 10
+      "id": 2
+    },
+    {
+      "name": "ravi kumar",
+      "email": "r@gmail.com",
+      "password": "123456",
+      "id": 3
     }
   ],
   "transactions": [
@@ -93,6 +51,78 @@
       "type": "debit",
       "amount": 7500,
       "timestamp": "2020-10-02 09:00"
+    },
+    {
+      "user_id": "3",
+      "title": "hello",
+      "type": "credit",
+      "amount": 500,
+      "timestamp": "14/10/2020, 00:39:09",
+      "id": 5
+    },
+    {
+      "user_id": "3",
+      "title": "Movie",
+      "type": "debit",
+      "amount": 12000,
+      "timestamp": "14/10/2020, 00:44:26",
+      "id": 6
+    },
+    {
+      "user_id": "3",
+      "title": "Docter",
+      "type": "debit",
+      "amount": 6700,
+      "timestamp": "14/10/2020, 00:45:32",
+      "id": 7
+    },
+    {
+      "user_id": 1,
+      "title": "Food",
+      "type": "debit",
+      "amount": 5000,
+      "timestamp": "14/10/2020, 01:34:57",
+      "id": 8
+    },
+    {
+      "user_id": 1,
+      "title": "Salary ",
+      "type": "credit",
+      "amount": 5000,
+      "timestamp": "14/10/2020, 01:35:19",
+      "id": 9
+    },
+    {
+      "user_id": "1",
+      "title": "Cloth",
+      "type": "debit",
+      "amount": 3560,
+      "timestamp": "14/10/2020, 01:54:04",
+      "id": 10
+    },
+    {
+      "user_id": "1",
+      "title": "jsdf",
+      "type": "debit",
+      "amount": 4534,
+      "timestamp": "14/10/2020, 01:58:45",
+      "id": 11
+    },
+    {
+      "user_id": "1",
+      "title": "jsdjfsd",
+      "type": "debit",
+      "amount": 453443,
+      "timestamp": "14/10/2020, 01:59:00",
+      "id": 12
+    },
+    {
+      "user_id": "1",
+      "title": "jsdjfsdqe",
+      "type": "credit",
+      "amount": 4534435,
+      "timestamp": "14/10/2020, 01:59:12",
+      "id": 13
     }
   ]
 }

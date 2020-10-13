@@ -1,4 +1,4 @@
-import {TRANSACTION_REQUEST,TRANSACTION_SUCCESS,TRANSACTION_FAILURE} from "../actionTypes"
+import {TRANSACTION_REQUEST,TRANSACTION_SUCCESS,TRANSACTION_FAILURE, ADD_TRANSACTION} from "../actionTypes"
 
 const initState = {
     transactionIsLoading : false ,
@@ -6,7 +6,8 @@ const initState = {
     transactionIsError : false,
     totalIncome:0,
     totalExpenses:0,
-    totalBalance:0
+    totalBalance:0,
+    transactionMessage:''
 }
 
 const dashboardReducer = (state=initState ,{type,payload} )=>
@@ -23,9 +24,9 @@ const dashboardReducer = (state=initState ,{type,payload} )=>
             let totalExpenses =0
             for(let i = 0; i < payload.length; i++){
                 if(payload[i].type === "credit")
-                    totalIncome += payload[i].amount
+                    totalIncome += Number(payload[i].amount)
                 else if(payload[i].type === "debit")
-                    totalExpenses += payload[i].amount
+                    totalExpenses += Number(payload[i].amount)
             }
             let last5Transaction = payload.sort((a,b)=>(b.id-a.id)).slice(0,5)
             console.log(totalExpenses, totalIncome, last5Transaction)
@@ -43,6 +44,23 @@ const dashboardReducer = (state=initState ,{type,payload} )=>
                 ...state,
                 transactionIsLoading : false,
                 transactionIsError : true
+            }
+        case ADD_TRANSACTION.REQUEST:
+            return {
+                ...state,
+                transactionIsLoading : true
+            }
+        case ADD_TRANSACTION.SUCCESS:
+            return {
+                ...state,
+                transactionIsLoading : false,
+                transactionMessage:payload.message
+            }
+        case ADD_TRANSACTION.FAILURE:
+            return{
+                ...state,
+                transactionIsLoading : false,
+                transactionMessage:payload.message
             }
         default :
             return{

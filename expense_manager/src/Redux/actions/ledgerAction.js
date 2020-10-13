@@ -1,30 +1,40 @@
-import axios from "axios";
-import { USER_LEDGER_REQUEST, USER_LEDGER_SUCCESS, USER_LEDGER_FAILURE } from "../actionTypes";
+  import axios from 'axios'
+  import {LEDGER_TRANSACTION_REQUEST, LEDGER_TRANSACTION_SUCCESS, LEDGER_TRANSACTION_FAILURE, AMOUNT_TYPE, PAGE_CHANGE} from "../actionTypes"
+  
+  export const transactionRequest = () => ({
+      type : LEDGER_TRANSACTION_REQUEST
+  })
+  
+  export const transactionSuccess = ( payload ) => ({
+      type : LEDGER_TRANSACTION_SUCCESS,
+      payload
+  })
+  
+  export const transactionFailure = ( payload ) => ({
+      type : LEDGER_TRANSACTION_FAILURE,
+      payload
+  })
+  
+  export const getTransactionDataLedger = ( payload ) => dispatch => {
+      console.log(payload)
+      dispatch( transactionRequest() )
+      return axios.get("http://localhost:3004/transactions",{
+        params:{
+            user_id : Number(payload)
+        }
+    })
+      
+      // .then(res=>console.log(res))
+      .then(res => dispatch(transactionSuccess(res.data)))
+      .catch(err => dispatch(transactionFailure(err)))
+  }
 
-export const userLedgerRequest = () => ({
-    type: USER_LEDGER_REQUEST
-  });
-  
-  export const userLedgerSuccess = (payload) => ({
-    type: USER_LEDGER_SUCCESS,
+  export const amountTypeChange = (payload) => ({
+    type: AMOUNT_TYPE,
     payload
   });
-  
-  export const userLedgerFailure = (payload) => ({
-    type: USER_LEDGER_FAILURE,
+
+  export const pageChange = (payload) => ({
+    type: PAGE_CHANGE,
     payload
   });
-  
-  export const userLogin = (payload) => (dispatch) => {
-    console.log(payload)
-    dispatch(userLoginRequest());
-    axios
-      .post("http://localhost:3000/transactions", payload)
-      .then(res=>{
-        
-        dispatch(userLedgerSuccess())
-        })
-      .catch((err) => {
-        dispatch(userLedgerFailure(err));
-      });
-  };

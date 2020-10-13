@@ -1,6 +1,8 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Styled from 'styled-components'
-import {useSelector} from 'react-redux'
+import {useDispatch, useSelector} from 'react-redux'
+import { addTransaction } from '../Redux/actions/addTransactionAction'
+import { getTransactionData } from '../Redux/actions/dashboardAction'
 
 const ModalWrapper = Styled.div ` 
       .modalbtn {
@@ -39,15 +41,43 @@ const Calculator = Styled.div`
 
 function DashboardItems()
 {
+    const [ amountType, setAmountType ] = useState('')
+    const [ title, setTitle ] = useState('')
+    const [ amount, setAmount ] = useState(0)
+
     const last5Transaction = useSelector( state => state.dashboard.transactionDetails)
     const totalBalance = useSelector( state => state.dashboard.totalBalance)
     const totalExpenses = useSelector( state => state.dashboard.totalExpenses)
     const totalIncome = useSelector( state => state.dashboard.totalIncome)
+    const user_id = useSelector( state => state.login.user_id)
+    const dispatch = useDispatch()
     console.log(totalBalance, totalExpenses, totalIncome, last5Transaction)
+
+
+    const handleTitleChange = (e)=>{
+        setTitle(e.target.value)
+    }
+
+    const handleAmountType = (e)=>{
+        setAmountType(e.target.value)
+    }
+
+    const handleAmount=(e)=>{
+        setAmount(e.target.value)
+    }
 
     const handleAddTransaction = ()=>{
         let date = new Date().toLocaleString();
-        console.log(date)
+        console.log(date, title, amountType, amount, user_id)
+        let payload = {
+            user_id: user_id,
+            title: title,
+            type: amountType,
+            amount: Number(amount),
+            timestamp: date
+        }
+        dispatch(addTransaction(payload))
+        setTimeout(()=> dispatch(getTransactionData(user_id)), 500)
     }
     return(
         <>
@@ -75,7 +105,13 @@ function DashboardItems()
                     {
                         last5Transaction && last5Transaction.map(data=>{
                             return(
-                                <div>{data.title}</div>
+                                <>
+                                    <div>{data.title}</div>
+                                    <div>{data.amount}</div>
+                                    <div>{data.type}</div>
+                                    <div>{data.timestamp}</div>
+                                </>
+
                             )
                        
                         })
@@ -98,14 +134,16 @@ function DashboardItems()
                                         type="text"
                                          class="form-control"
                                           id="exampleInputPassword1"
-                                          placeholder="title"
+                                          placeholder="Title"
+                                          onChange={handleTitleChange}
                                           />
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleFormControlSelect1">Type of Transaction</label>
-                                    <select class="form-control" id="exampleFormControlSelect1">
-                                        <option>Debit</option>
-                                        <option>Credit</option>                                        
+                                    <select class="form-control" id="exampleFormControlSelect1" onChange={handleAmountType}>
+                                        <option selected>Select Amount Type</option>
+                                        <option value="debit">Debit</option>
+                                        <option value="credit">Credit</option>                                        
                                     </select>
                                 </div>
                                 <div class="form-group">
@@ -114,13 +152,14 @@ function DashboardItems()
                                         type="number"
                                          class="form-control"
                                           id="exampleInputPassword1"
-                                          placeholder="amount"
+                                          placeholder="Amount"
+                                          onChange={handleAmount}
                                           />
                                 </div>
                             </div>
                             <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-primary" onClick={handleAddTransaction}>Save changes</button>
+                            <button type="button" class="btn btn-primary" data-dismiss="modal"  onClick={handleAddTransaction}>Save changes</button>
                             </div>
                         </div>
                         </div>
