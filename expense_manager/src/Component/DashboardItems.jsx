@@ -3,13 +3,49 @@ import Styled from 'styled-components'
 import {useDispatch, useSelector} from 'react-redux'
 import { addTransaction } from '../Redux/actions/addTransactionAction'
 import { getTransactionData } from '../Redux/actions/dashboardAction'
+import { withStyles, makeStyles } from '@material-ui/core/styles';
+import Table from '@material-ui/core/Table';
+import TableBody from '@material-ui/core/TableBody';
+import TableCell from '@material-ui/core/TableCell';
+import TableContainer from '@material-ui/core/TableContainer';
+import TableHead from '@material-ui/core/TableHead';
+import TableRow from '@material-ui/core/TableRow';
+import Paper from '@material-ui/core/Paper';
+
+const StyledTableCell = withStyles((theme) => ({
+    head: {
+      backgroundColor: theme.palette.common.black,
+      color: theme.palette.common.white,
+    },
+    body: {
+      fontSize: 14,
+    },
+  }))(TableCell);
+
+  const StyledTableRow = withStyles((theme) => ({
+    root: {
+      '&:nth-of-type(odd)': {
+        backgroundColor: theme.palette.action.hover,
+      },
+    },
+  }))(TableRow);
+
+  const useStyles = makeStyles({
+    table: {
+      minWidth: 700,
+    },
+  });
+
+
 
 const ModalWrapper = Styled.div ` 
-      .modalbtn {
-        width:120px;
-        border-radius : 50%;
-        font-size :80px;
-        border : #1B5E20;
+    display:flex;
+    flex-direction:row-reverse;
+      .modalbtn {  
+       height:100px;
+        width:100px;
+        border-radius :50% ;     
+        border :1px solid #1B5E20;
         background : #A5D6A7;
         color:white;
       }
@@ -21,11 +57,13 @@ const ModalWrapper = Styled.div `
 const CalculatorWrapper = Styled.div`
     display:flex;
     justify-content:space-around;
+    margin-top : 100px;
+    margin-left:10%;
 `
 
 const Calculator = Styled.div`
     height : min-height;
-    width : 300px;
+    width : 500px;
     padding : 30px;
     padding-bottom :30px;
     background : ${props => props.color ? props.color : null};
@@ -34,6 +72,7 @@ const Calculator = Styled.div`
     display : flex;
     flex-direction : column;
     align-items:flex-end;
+    margin-right:10px;
    
   
 
@@ -44,7 +83,7 @@ function DashboardItems()
     const [ amountType, setAmountType ] = useState('')
     const [ title, setTitle ] = useState('')
     const [ amount, setAmount ] = useState(0)
-
+    const classes = useStyles();
     const last5Transaction = useSelector( state => state.dashboard.transactionDetails)
     const totalBalance = useSelector( state => state.dashboard.totalBalance)
     const totalExpenses = useSelector( state => state.dashboard.totalExpenses)
@@ -83,8 +122,10 @@ function DashboardItems()
         <>
             <CalculatorWrapper>
                     <Calculator color="#D81B60" style={{}}>
-                        <div>{totalExpenses}</div>
-                        <div>Total-Expense</div>
+                        <div>
+                            <div>{totalExpenses}</div>
+                            <div>Total-Expense</div>
+                        </div>
                     </Calculator>
                     <Calculator color="#00ACC1">
                         <div>{totalIncome}</div>
@@ -96,27 +137,43 @@ function DashboardItems()
                     </Calculator>
                 </CalculatorWrapper>
             <ModalWrapper>
-                To add Expense/Income click Below
-                {/* <!-- Button trigger modal --> */}
-                    <button type="button" class="btn modalbtn" data-toggle="modal" data-target="#exampleModal">
-                        +
-                    </button>
-
-                    {
-                        last5Transaction && last5Transaction.map(data=>{
-                            return(
-                                <>
-                                    <div>{data.title}</div>
-                                    <div>{data.amount}</div>
-                                    <div>{data.type}</div>
-                                    <div>{data.timestamp}</div>
-                                </>
-
-                            )
-                       
-                        })
-                    }
-
+                <div style={{flexDirection:"column",margin:"30px"}}>
+                    <div  className="text-center" style={{fontSize:"30px",fontWeight:"bolder",lineHeight:2}}>To add<br/> Expense/Income <br/>click Below</div>
+                    {/* <!-- Button trigger modal --> */}
+                    <div className="text-center"><i class="fas fa-long-arrow-alt-down" style={{fontSize:"80px",fontWeight:"bolder"}}></i></div>
+                       <div  className="text-center"> <button type="button" class="btn modalbtn" data-toggle="modal" data-target="#exampleModal">
+                        <i class="fas fa-plus" style={{fontSize:"50px"}}></i>
+                        </button></div>
+                </div>
+                <div style={{display:"flex",flexDirection:"column",justifyContent:"space-between"}}>
+                    <div style={{lineHeight:3,fontWeight:"bolder",fontSize:30}}>
+                        LAST FIVE TRANSACTION
+                    </div>
+                    <div>
+                        <TableContainer component={Paper}>
+                            <Table className={classes.table} aria-label="customized table">
+                                <TableHead>
+                                <TableRow>
+                                    <StyledTableCell align="center">Reason For transaction</StyledTableCell>
+                                    <StyledTableCell align="center">Type of transaction</StyledTableCell>
+                                    <StyledTableCell align="center">Amount</StyledTableCell>
+                                    <StyledTableCell align="center">Date and Time</StyledTableCell>
+                                </TableRow>
+                                </TableHead>
+                                <TableBody>
+                                {last5Transaction && last5Transaction.map((data) => (
+                                    <StyledTableRow key={data.id}>                            
+                                        <StyledTableCell align="center">{data.title}</StyledTableCell>
+                                        <StyledTableCell align="center">{data.amount}</StyledTableCell>
+                                        <StyledTableCell align="center">{data.type}</StyledTableCell>
+                                        <StyledTableCell align="center">{data.timestamp}</StyledTableCell>
+                                    </StyledTableRow>
+                                ))}
+                                </TableBody>
+                            </Table>
+                            </TableContainer>
+                    </div>
+                </div>
                     {/* <!-- Modal --> */}
                     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                         <div class="modal-dialog modal-dialog-centered">

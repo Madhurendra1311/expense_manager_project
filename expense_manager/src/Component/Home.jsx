@@ -1,15 +1,19 @@
-import React from 'react'
+import React, { useState } from 'react'
 import {Link} from 'react-router-dom'
 import Styled from 'styled-components'
 import Footer from './Footer'
+import Features from './Features'
 
 const HomeWrapper=Styled.div`
     justify-content:space-around;
+    padding:10px;
     width:100%;
     position : fixed;
     top:-2px;
     z-index:20;
-    background:white;
+    background:${(props)=>props.height<300?  "rgb(0,0,0)" : "white"};
+    background: ${(props)=>props.height<300? "rgba(0,0,0, 0.4)" : "white"};    
+    color:${(props)=>props.height<300? "white" : "grey"};
     display:flex;
     img{
         margin-left:100px;
@@ -22,17 +26,28 @@ const HomeWrapper=Styled.div`
         justify-content : center;
     }
     ul li{
-        display : inline-block;
+        display : inline-block; 
         
     }
     li{
         margin-left:50px;
+        padding-top:15px;
+    }
+    li:hover{       
+        color : orange;
     }
     button{
-        background:transparent;
-        border:1px solid grey;
-        padding:10px;
-        margin-top:10px;
+        color:${(props)=>props.height<300? "white" : "grey"};
+        border:${(props)=>props.height<300? "1px solid white" : "1px solid grey"};
+        margin-top:4px;
+        padding:10px;        
+        background:${(props)=>props.height<300?  "rgb(0,0,0)" : "white"};
+        background: ${(props)=>props.height<300? "rgba(0,0,0, 0.4)" : "white"};  
+    }
+
+    button:hover{
+       color : orange;
+       border:1px solid orange;
     }
     .flex{
         display:flex;
@@ -70,7 +85,7 @@ const MiddleWrapper=Styled.div`
 `
 const AboutWebsiteContentWrapper=Styled.div`
     position:relative;
-    top:-300px;
+    top:-200px;
     left:230px;
     text-align:center;
     color:#212121;
@@ -82,9 +97,14 @@ const AboutWebsiteContentWrapper=Styled.div`
 `
 
 function Home(){
+    let [position,setPosition] =useState( window.pageYOffset)
+    setInterval(()=>{
+        setPosition(window.pageYOffset)
+    },500)
+    console.log(position)
     return(
         <div>
-            <HomeWrapper>
+            <HomeWrapper height={position}>
                 <div><img src="http://www.expense-manager.in/assets/img/Expmng-Logo.png" alt="logo" height="50px" width="160px" /></div>
               
                 <div>
@@ -122,6 +142,7 @@ function Home(){
                 Just add new transactions when you are buying a coffee or taking a taxi or whenever do a transactions. It’s done in one click, because you just need to fill few field with expense/income amount. It is so quick and enjoyable!
                 </div>
             </AboutWebsiteContentWrapper>
+            <Features/>
             <Footer/>
         </div>
     )

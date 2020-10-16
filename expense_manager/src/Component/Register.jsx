@@ -4,6 +4,7 @@ import axios from 'axios'
 import { userRegister } from "../Redux/actions/registerAction";
 import { validEmail } from './emailValidation'
 import Styled from 'styled-components'
+import {Link} from 'react-router-dom'
 
 const RegisterWrapper = Styled.div`
 
@@ -146,10 +147,14 @@ class Register extends React.Component{
                         <div>
                             <input onChange={this.handleChange} name="password" placeholder="password" type="password" value={password} />
                         </div>
+                        <small className="text-muted ml-5 ">already Registered kindly 
+                        <Link to="/login">SignIn</Link></small>
                         <div>
-                            <input  className="button" value="submit" type="submit" />
+                            <input  className="button border-0" value="submit" type="submit" />
                         </div>
                 </form>
+                <div className="align-center"><Link to="/"><button className="btn btn-danger border-0 p-2 ml-4">Back to home</button></Link></div>
+
                 </div>
             </RegisterWrapper>
       
