@@ -35,10 +35,10 @@ function Ledger() {
         <div className="row" style={{color:"white" ,marginLeft:"30px"}}>
           <Link to="/dashboard"><div className="col-12" style={{padding:"30px"}}>DashBoard</div></Link>
           <Link to="/ledger"><div className="col-12" style={{padding:"30px"}}>Ledger</div></Link>
-          <button onClick={handleLogout}>LOGOUT</button>
+          <button className="btn border-0 btn-danger ml-2" onClick={handleLogout}>LOGOUT</button>
         </div>
       </div>
-            <div className="col-9">
+            <div className="col-10">
                 <LedgerItems/> 
             </div>
         </div>

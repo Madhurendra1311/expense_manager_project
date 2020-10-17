@@ -35,7 +35,7 @@ function DashBoard() {
       <div className="row" style={{height:"1000px"}}>           
       <div className="col-2 collapse" id="navbarToggleExternalContent"  style={{background:"#212121"}}>
         <div className="row" style={{color:"white" ,marginLeft:"30px"}}>
-          <Link to="/dashboard"><div className="col-12" style={{padding:"30px"}}>DashBoard</div></Link>
+          <Link to="/dashboard"><div className="col-12" style={{paddingTop:"30px"}}>DashBoard</div></Link>
           <Link to="/ledger"><div className="col-12" style={{padding:"30px"}}>Ledger</div></Link>
           <button className="btn border-0 btn-danger ml-2" onClick={handleLogout}>LOGOUT</button>
         </div>
