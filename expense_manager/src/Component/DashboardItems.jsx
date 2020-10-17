@@ -12,6 +12,8 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 
+
+
 const StyledTableCell = withStyles((theme) => ({
     head: {
       backgroundColor: theme.palette.common.black,
@@ -70,12 +72,16 @@ const Calculator = Styled.div`
     color : white;
     font-size : 20px;  
     display : flex;
-    flex-direction : column;
+    flex-direction : row;
     align-items:flex-end;
-    margin-right:10px;
-   
-  
+    justify-content : space-between;
+    margin-right:10px; 
 
+    .iconPart{
+        position:relative;
+        top:30px;
+        left:-20px;
+    }
 `
 
 function DashboardItems()
@@ -92,7 +98,7 @@ function DashboardItems()
     const dispatch = useDispatch()
     console.log(totalBalance, totalExpenses, totalIncome, last5Transaction)
 
-
+    
     const handleTitleChange = (e)=>{
         setTitle(e.target.value)
     }
@@ -121,23 +127,33 @@ function DashboardItems()
     return(
         <>
             <CalculatorWrapper>
-                    <Calculator color="#D81B60" style={{}}>
-                        <div>
-                            <div>{totalExpenses}</div>
-                            <div>Total-Expense</div>
+                    <Calculator color="#D81B60">
+                        <div className="iconPart"><i class="fas fa-project-diagram" style={{fontSize:100,opacity:"0.1"}}></i></div>
+                        <div className="d-flex flex-column">
+                            <div style={{textAlign:"right",fontSize:40}}>{totalExpenses}₹</div>
+                            <div style={{fontSize:15}}>Total-Expense</div>
                         </div>
                     </Calculator>
                     <Calculator color="#00ACC1">
-                        <div>{totalIncome}</div>
-                        <div>Total-Income</div>
+                        <div className="iconPart"><i className="fas fa-plus-circle" style={{fontSize:100,opacity:"0.1"}}></i></div>
+                        <div className="d-flex flex-column">
+                            <div style={{textAlign:"right",fontSize:40}}>{totalIncome}₹</div>
+                            <div style={{fontSize:15}}>Total-Income</div>
+                        </div>
                     </Calculator>
                     <Calculator color="#1E88E5">
-                    <div>{totalBalance}</div>
-                        Total-Balance
+                     <div className="iconPart"><i class="fas fa-rupee-sign" style={{fontSize:100,opacity:"0.1"}}></i></div>
+                        <div className="d-flex flex-column">
+                            <div  style={{textAlign:"right",fontSize:40}}>{totalBalance}₹</div>
+                            <div style={{fontSize:15}}>Total-Balance</div>
+                        </div>
                     </Calculator>
                 </CalculatorWrapper>
             <ModalWrapper>
-                <div style={{flexDirection:"column",margin:"30px"}}>
+                <div style={{flexDirection:"column",margin:"30px"}}>            
+
+              
+
                     <div  className="text-center" style={{fontSize:"30px",fontWeight:"bolder",lineHeight:2}}>To add<br/> Expense/Income <br/>click Below</div>
                     {/* <!-- Button trigger modal --> */}
                     <div className="text-center"><i class="fas fa-long-arrow-alt-down" style={{fontSize:"80px",fontWeight:"bolder"}}></i></div>
@@ -146,10 +162,10 @@ function DashboardItems()
                         </button></div>
                 </div>
                 <div style={{display:"flex",flexDirection:"column",justifyContent:"space-between"}}>
-                    <div style={{lineHeight:3,fontWeight:"bolder",fontSize:30}}>
+                    <div className="d-none d-lg-block" style={{lineHeight:3,fontWeight:"bolder",fontSize:30}}>
                         LAST FIVE TRANSACTION
                     </div>
-                    <div>
+                    <div className="d-none d-lg-block">
                         <TableContainer component={Paper}>
                             <Table className={classes.table} aria-label="customized table">
                                 <TableHead>
@@ -216,7 +232,7 @@ function DashboardItems()
                             </div>
                             <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-primary" data-dismiss="modal"  onClick={handleAddTransaction}>Save changes</button>
+                            <button type="button" class="btn btn-primary" data-dismiss="modal"  onClick={handleAddTransaction}>Add Transaction</button>
                             </div>
                         </div>
                         </div>

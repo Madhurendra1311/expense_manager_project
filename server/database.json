@@ -123,6 +123,22 @@
       "amount": 4534435,
       "timestamp": "14/10/2020, 01:59:12",
       "id": 13
+    },
+    {
+      "user_id": 1,
+      "title": "sdhwdg",
+      "type": "debit",
+      "amount": 18274,
+      "timestamp": "10/17/2020, 12:14:49 AM",
+      "id": 14
+    },
+    {
+      "user_id": 1,
+      "title": "madurendraKumar(rent)",
+      "type": "debit",
+      "amount": 30000,
+      "timestamp": "10/17/2020, 12:24:24 PM",
+      "id": 15
     }
   ]
 }
