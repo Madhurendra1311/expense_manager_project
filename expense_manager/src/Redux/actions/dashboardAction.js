@@ -18,7 +18,7 @@ export const transactionFailure = ( payload ) => ({
 export const getTransactionData = ( payload ) => dispatch => {
     console.log(payload)
     dispatch( transactionRequest() )
-    return axios.get("http://localhost:3004/transactions",{
+    return axios.get("https://guarded-cove-82318.herokuapp.com/transactions",{
         params:{
             user_id : Number(payload)
         }

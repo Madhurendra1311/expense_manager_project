@@ -20,7 +20,7 @@ export const addTransactionFailure = (payload) => ({
 export const addTransaction = (payload) => (dispatch) => {
     dispatch(addTransactionRequest());
     axios
-      .post("http://localhost:3004/transactions", payload)
+      .post("https://guarded-cove-82318.herokuapp.com/transactions", payload)
       .then((res) => {
           if(res.status === 200){
             const { error, message } = res.data

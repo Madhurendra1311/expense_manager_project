@@ -96,7 +96,7 @@ class Register extends React.Component{
 
         if(name.length > 3 && validEmail(email) && password.length > 5 ) {
             axios
-            .get('http://localhost:3004/usersData')
+            .get('https://guarded-cove-82318.herokuapp.com/usersData')
             .then(res=>{
                 let userData = res.data
                 let isValid = true
