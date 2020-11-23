@@ -104,7 +104,7 @@ class Login extends React.Component {
       return (
         <LoginWrapper>
           <div class="img">
-                  <img src = "http://www.expense-manager.in/assets/img/Expmng-Logo.png" height="80px" width="200px" alt="logo"/>
+                  <img src = "img/logo.png" height="80px" width="200px" alt="logo"/>
             </div>
             <div>
                   <h1>LOGIN ACCOUNT</h1>

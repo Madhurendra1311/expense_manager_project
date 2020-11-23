@@ -106,7 +106,7 @@ function Home(){
     return(
         <div>
             <HomeWrapper height={position}>
-                <div><img src="http://www.expense-manager.in/assets/img/Expmng-Logo.png" alt="logo" height="50px" width="160px" /></div>
+                <div><img src="img/logo.png" alt="logo" height="50px" width="160px" /></div>
               
                 <div>
                     <ul>
@@ -122,7 +122,7 @@ function Home(){
               
             </HomeWrapper>
             <BackgroundWrapper>
-                <img src="http://www.expense-manager.in/assets/img/bg/img1.jpg" alt="landing page" height="800px" width="100%"/>   
+                <img src="img/banner.jpg" alt="landing page" height="800px" width="100%"/>   
             </BackgroundWrapper>
             <MiddleWrapper>
                 <hr width="500px" />
