@@ -140,11 +140,12 @@ class Login extends React.Component {
                 </div>
               </form>
               <div className="align-center"><Link to="/"><button className="btn btn-danger border-0 p-2 ml-4">Back to home</button></Link></div>
+              {isLoading && "...loading"}          
+              {
+                  !isAuth && error  && <div style={{textAlign:"center",color:"red"}}>Invalid Credentials pls try Again !!!</div>
+              }
             </div>
-          {isLoading && "...loading"}          
-          {
-              !isAuth && error  && <div>Invalid Credentials pls try Again !!!</div>
-          }
+         
         </LoginWrapper>
       );
     else {

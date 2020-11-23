@@ -80,6 +80,7 @@ const MiddleWrapper=Styled.div`
         border:1px solid white;
         color:white;
         padding : 10px;
+        font-size : 20px;
     }
    
 `
@@ -110,8 +111,8 @@ function Home(){
                 <div>
                     <ul>
                         <li>HOME <span>o</span></li>
-                        <li>FEATURES <span>o</span></li>
-                        <li>ABOUT US <span>o</span></li>
+                        <a href="#features"><li>FEATURES <span>o</span></li></a>
+                        <a href="#website"><li>ABOUT US <span>o</span></li></a>
                         <li>CONTACT</li>
                     </ul>
                 </div>
@@ -133,13 +134,15 @@ function Home(){
                 <button>Learn More</button>
             </MiddleWrapper>
             <AboutWebsiteContentWrapper>
-                <h1>ABOUT WEBSITE</h1>
-                <hr width="100px"/>
-                <div>
-                How to track your expenses successfully? We know that it’s easy. You only need to add each expense you do… no more than that!
-                And Expense Manager is going to help you.This website allows you to record your expenses easily. Optionally you can assign a category to your expense in order to get detailed statistics and helpful insights.
-                Expense Manager is simple, intuitive, stable and feature-rich website that is just designed for you.
-                Just add new transactions when you are buying a coffee or taking a taxi or whenever do a transactions. It’s done in one click, because you just need to fill few field with expense/income amount. It is so quick and enjoyable!
+                <div id="website">
+                    <h1 >ABOUT WEBSITE</h1>
+                    <hr width="100px"/>
+                    <div>
+                        How to track your expenses successfully? We know that it’s easy. You only need to add each expense you do… no more than that!
+                        And Expense Manager is going to help you.This website allows you to record your expenses easily. Optionally you can assign a category to your expense in order to get detailed statistics and helpful insights.
+                        Expense Manager is simple, intuitive, stable and feature-rich website that is just designed for you.
+                        Just add new transactions when you are buying a coffee or taking a taxi or whenever do a transactions. It’s done in one click, because you just need to fill few field with expense/income amount. It is so quick and enjoyable!
+                    </div>
                 </div>
             </AboutWebsiteContentWrapper>
             <Features/>

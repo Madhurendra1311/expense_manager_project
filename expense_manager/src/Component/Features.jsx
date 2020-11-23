@@ -35,6 +35,7 @@ const useStyles = makeStyles((theme) => ({
 const Features =()=>{
     const classes = useStyles()
     return(
+        <div id="features">
         <Grid container className={classes.root} spacing={2}>
             <Grid item xs={12}>
                  <Grid container justify="center" spacing={0}>
@@ -100,7 +101,7 @@ const Features =()=>{
                  </Grid>
             </Grid>
         </Grid>
-               
+        </div>        
    
     )
     
