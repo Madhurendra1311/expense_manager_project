@@ -1,4 +1,4 @@
-# expense_manager_project
+# expense_manager_project:
 
 Expense Manager is an Application for tracking the inflow and outflow of the money.
 This App will track all your expenses and calculate the spending amount and the income amount and 
